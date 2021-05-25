@@ -11,10 +11,23 @@ Type: "String!" means required and never can be null
 const typeDefs = `
   type Query {
     info: String!
+    feed: [Link!]!
+  }
+
+  type Link {
+      id: ID!
+      description: String!
+      url: String!
   }
 `
 
 
+
+let links = [{
+    id: 'link-0',
+    url: 'www.howtographql.com',
+    description: 'Fullstack tutorial for GraphQL'
+}]
 
 /*
 The actual implementation of the GraphQL schema.  
@@ -22,7 +35,14 @@ Structure is identical to the structure of the type definition inside typeDefs: 
 */
 const resolvers = {
     Query: {
-        info: () => `This is the API of Hackernews Clone`
+        info: () => 'This is a test API for hackernews clone',
+        feed: () => links,
+    },
+
+    Link: {
+        id: (parent) => parent.id,
+        description: (parent) => parent.description,
+        url: (parent) => parent.url,
     }
 }
 
