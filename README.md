@@ -6,8 +6,8 @@
 
 <!-- generate with: npx @appnest/readme generate-->
 
- * **@prisma/client**: ^2.23.0
-* **apollo-server**: ^2.24.1
-* **bcryptjs**: ^2.4.3
-* **graphql**: ^15.5.0
-* **jsonwebtoken**: ^8.5.1 
+## Dependencies 
+run code in both root dir and server dir below to install dependencies for frontend and backend
+```
+npm install
+```
