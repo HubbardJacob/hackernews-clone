@@ -2,8 +2,12 @@ const { ApolloServer } = require('apollo-server');
 const fs = require('fs');
 const path = require('path');
 const { PrismaClient } = require('@prisma/client')
-const { feed } = require(`./resolvers/Query.js`)
-const { postLink, updateLink, deleteLink} = require(`./resolvers/Mutation.js`)
+const { getUserId } = require('./utils.js');
+
+const Query = require('./resolvers/Query')
+const Mutation = require('./resolvers/Mutation')
+const User = require('./resolvers/User')
+const Link = require('./resolvers/Link')
 
 
 /*
@@ -11,17 +15,10 @@ The actual implementation of the GraphQL schema.
 Structure is identical to the structure of the type definition inside typeDefs: Query.info.
 */
 const resolvers = {
-    Query: {
-        info: () => 'This is a test API for hackernews clone',
-        feed: feed
-        // link: (parent, args) =>
-        //     links.find(link => link.id == args.id)
-    },
-    Mutation: {
-        postLink: postLink,
-        updateLink: updateLink,
-        deleteLink: deleteLink
-    }
+    Query,
+    Mutation,
+    User,
+    Link
 }
 
 
@@ -36,8 +33,15 @@ const server = new ApolloServer({
         'utf8'
     ),
     resolvers,
-    context: {
-        prisma,
+    context: ({ req }) => {
+        return {
+            ...req,
+            prisma,
+            userId:
+                req && req.headers.authorization
+                    ? getUserId(req)
+                    : null
+        }
     }
 })
 
