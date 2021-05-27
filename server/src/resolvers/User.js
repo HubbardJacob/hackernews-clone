@@ -1,7 +1,7 @@
-function links(parent, args, context) {
-    return context.prisma.user.findUnique({ where: { id: parent.id } }).links()
-  }
+async function links(parent, args, context) {
+  return await context.prisma.user.findUnique({ where: { id: parent.id } }).links()
+}
   
-  module.exports = {
-    links,
-  }
+module.exports = {
+  links,
+}

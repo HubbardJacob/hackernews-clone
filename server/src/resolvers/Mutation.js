@@ -6,11 +6,11 @@ const { APP_SECRET, getUserId } = require('../utils')
 async function signup(parent, args, context, info) {
     
     const password = await bcrypt.hash(args.password, 10)
-
+    
     const user = await context.prisma.user.create({ data: {...args, password } })
 
     const token = jwt.sign({ userId: user.id }, APP_SECRET)
-
+ 
     return {
         token,
         user,
@@ -41,8 +41,7 @@ async function login(parent, args, context, info) {
 
 
 async function postLink(parent, args, context, info) {
-    const { userId } = context
-
+    const userId = context.userId
 
     return await context.prisma.link.create({
         data: {
@@ -55,6 +54,8 @@ async function postLink(parent, args, context, info) {
 
 async function updateLink(parent, args, context, info){
     const id = +args.id;
+    const userId  = context.userId
+    console.log(userId)
     const updateLink = await context.prisma.link.update({
         where: {
             id: id
