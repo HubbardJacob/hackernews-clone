@@ -24,18 +24,10 @@ const client = new ApolloClient({
 });
 
 
-// const client = new ApolloClient({
-//   link: 
-// })
-
-
-
-
-
 ReactDOM.render(
-  <React.StrictMode>
+  <ApolloProvider client={client}>
     <App />
-  </React.StrictMode>,
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
