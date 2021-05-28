@@ -12,3 +12,8 @@ run code in both root dir and server dir below to install dependencies for front
 ```
 npm install
 ```
+or
+```
+yarn install
+```
+
