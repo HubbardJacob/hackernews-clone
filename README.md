@@ -2,7 +2,7 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#hackernews-clone)
 
 # ➤ hackernews-clone
- Creating this project to practice creating an API with GraphQL. 
+ Creating this project to practice creating an API with GraphQL. <br>
  I named this project hackernews clone because I was following a tutorial but then I quickly started creating my own things and did not end up following the tutorial 
 
 <!-- generate with: npx @appnest/readme generate-->
