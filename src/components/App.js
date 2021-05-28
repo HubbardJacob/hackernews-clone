@@ -6,6 +6,7 @@ import LinkList from './LinkList';
 import Link from './Link';
 import CreateLink from './CreateLink'
 import { UserList, SelectUserID} from './UserList'
+import Signup from './Signup'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <UserList />
       <SelectUserID />
       <LinkList />
+      <Signup />
       <CreateLink />
     </>
   );

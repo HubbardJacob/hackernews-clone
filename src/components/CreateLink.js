@@ -25,17 +25,12 @@ const CreateLink  = () => {
 
     const [createLink, { error }] = useMutation(CREATE_LINK_MUTATION, {
         variables: {
-            description : formState.description,
-            url: formState.url
+            ...formState
         },
         onError: () => setSuccessState("Creation Failed"),
         onCompleted: () => setSuccessState("Creation Success")
     }, )
 
-    if(error){
-        console.log(error.message)
-    }
-    
     return (
         <div>
             <div>{successState}</div>
