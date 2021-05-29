@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import User from './User'
 import { useQuery, gql } from '@apollo/client'
 

@@ -23,7 +23,7 @@ const CreateLink  = () => {
 
     const [successState, setSuccessState] = useState("")
 
-    const [createLink, { error }] = useMutation(CREATE_LINK_MUTATION, {
+    const [createLink] = useMutation(CREATE_LINK_MUTATION, {
         variables: {
             ...formState
         },
